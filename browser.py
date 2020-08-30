@@ -8,7 +8,7 @@ import time
 import os
 import requests
 from bs4 import BeautifulSoup
-import keyboard
+
 import click
 from tld import get_tld
 import escapecodes
@@ -48,7 +48,7 @@ class Browser():
 
     def process_webpage_links(self):
         ''' Processes the current webpage '''
-        self.html = BeautifulSoup(self.browser.page_source,'html5lib')
+        self.html = BeautifulSoup(self.browser.page_source,'html.parser')
         self.page_links = self.html.find_all('a')
         for a in self.html.find_all('a'):
             try:
